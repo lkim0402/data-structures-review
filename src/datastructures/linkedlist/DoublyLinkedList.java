@@ -6,8 +6,8 @@ public class DoublyLinkedList {
   private Node tail;
   private int length;
 
-  class Node {
-    int value;
+  public class Node {
+    public int value;
     Node next;
     Node prev;
 
@@ -34,6 +34,23 @@ public class DoublyLinkedList {
       tail = newNode;
     }
     length++;
+  }
+
+  public Node removeLast() {
+    if (tail == null) return null;
+
+    Node toRemove = tail;
+    if (length == 1) {
+      head = null;
+      tail = null;
+    } else {
+      Node prev = tail.prev;
+      toRemove.prev = null;
+      prev.next = null;
+      tail = prev;
+    }
+    length--;
+    return toRemove;
   }
 
   // ========== print methods ==========
