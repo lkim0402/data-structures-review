@@ -10,7 +10,7 @@ public class Main {
 
         DoublyLinkedList dll = new DoublyLinkedList(7);
         dll.printAll();
-        dll.prepend(1);
+        dll.removeFirst();
         dll.printAll();
     }
 }
