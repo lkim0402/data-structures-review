@@ -52,6 +52,19 @@ public class DoublyLinkedList {
     return toRemove;
   }
 
+  public void prepend(int value) {
+    Node toAdd = new Node(value);
+    if (length == 0) {
+      head = toAdd;
+      tail = toAdd;
+    } else {
+      toAdd.next = head;
+      head.prev = toAdd;
+      head = toAdd;
+    }
+    length++;
+  }
+
   // ========== print methods ==========
   public Node getHead() {
     return head;
