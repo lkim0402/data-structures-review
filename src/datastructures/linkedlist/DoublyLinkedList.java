@@ -44,10 +44,9 @@ public class DoublyLinkedList {
       head = null;
       tail = null;
     } else {
-      Node prev = tail.prev;
-      toRemove.prev = null;
-      prev.next = null;
-      tail = prev;
+      tail = tail.prev;
+      tail.next = null;
+      toRemove.next = null;
     }
     length--;
     return toRemove;
