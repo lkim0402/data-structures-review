@@ -138,12 +138,12 @@ public class DoublyLinkedList {
   }
 
   public Node remove (int index) {
-    if (index < 0 || index > length) {
+    if (index < 0 || index >= length) {
       return null;
     }
     if (index == 0){
       return removeFirst();
-    } else if (index == length) {
+    } else if (index == length - 1) {
       return removeLast();
     } else {
       Node node = get(index);
@@ -151,6 +151,9 @@ public class DoublyLinkedList {
       Node after = node.next;
       before.next = after;
       after.prev = before;
+
+      node.next = null;
+      node.prev = null;
       length--;
       return node;
     }
