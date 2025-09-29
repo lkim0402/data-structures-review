@@ -9,8 +9,11 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
 
         DoublyLinkedList dll = new DoublyLinkedList(7);
-        dll.printAll();
-        dll.removeFirst();
-        dll.printAll();
+        dll.append(1);
+        dll.append(6);
+
+        System.out.println(dll.get(0).value);
+        System.out.println(dll.get(1).value);
+
     }
 }

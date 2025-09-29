@@ -81,6 +81,30 @@ public class DoublyLinkedList {
     return toRemove;
   }
 
+  public Node get(int index) {
+    if (index < 0 || index >= length) {
+      return null;
+    }
+
+    int half = length / 2;
+    if (index > half) { // start from tail
+      index = (length - 1) - index;
+      Node runner = tail;
+      while (index > 0) {
+        runner = runner.prev;
+        index--;
+      }
+      return runner;
+    } else {
+      Node runner = head;
+      while (index > 0) {
+        runner = runner.next;
+        index--;
+      }
+      return runner;
+    }
+  }
+
   // ========== print methods ==========
   public Node getHead() {
     return head;
