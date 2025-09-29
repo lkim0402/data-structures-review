@@ -12,8 +12,8 @@ public class Main {
         dll.append(1);
         dll.append(6);
 
-        System.out.println(dll.get(0).value);
-        System.out.println(dll.get(1).value);
+        System.out.println(dll.set(0,4));
+        dll.printAll();
 
     }
 }
