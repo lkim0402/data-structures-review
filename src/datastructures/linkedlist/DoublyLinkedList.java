@@ -114,6 +114,29 @@ public class DoublyLinkedList {
     return true;
   }
 
+  public boolean insert(int index, int value) {
+    if (index < 0 || index > length) {
+      return false;
+    }
+
+    if (index == 0) {
+      prepend(value);
+    } else if (index == length) {
+      append(value);
+    } else {
+      Node temp = get(index - 1);
+      Node tempNext = temp.next;
+      Node newNode = new Node(value);
+
+      temp.next = newNode;
+      newNode.next = tempNext;
+      newNode.prev = temp;
+      tempNext.prev = newNode;
+      length++;
+    }
+    return true;
+  }
+
   // ========== print methods ==========
   public Node getHead() {
     return head;
