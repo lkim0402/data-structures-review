@@ -12,7 +12,7 @@ public class Main {
         dll.append(1);
         dll.append(6);
 
-        System.out.println(dll.insert(0,4));
+        System.out.println(dll.remove(1));
         dll.printAll();
 
     }
