@@ -13,6 +13,8 @@ public class Stack {
   private Node top;
   private int height;
 
+  // stack can be implemented in linkedlist or arraylist
+  // we push or pop from the top (head) so both is O(1)
   public Stack(int value) {
     Node newNode = new Node(value);
     this.top = newNode;
