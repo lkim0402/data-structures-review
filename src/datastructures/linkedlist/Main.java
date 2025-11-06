@@ -1,5 +1,4 @@
-import datastructures.linkedlist.DoublyLinkedList;
-import datastructures.linkedlist.DoublyLinkedList.Node;
+package datastructures.linkedlist;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
