@@ -41,7 +41,6 @@ public class Stack {
     return toPop;
   }
 
-
   // utility methods
   public void printStack() {
     Node temp = top;
