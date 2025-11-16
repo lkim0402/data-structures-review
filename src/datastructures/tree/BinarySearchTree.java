@@ -47,8 +47,9 @@ public class BinarySearchTree {
   }
 
   public boolean contains(int val) {
-    Node temp = root;
+    if (root == null) return false;
 
+    Node temp = root;
     while (true) {
       if (val == temp.value) return true;
 
