@@ -47,20 +47,81 @@ public class BinarySearchTree {
   }
 
   public boolean contains(int val) {
-    if (root == null) return false;
+//    if (root == null) return false;
+//
+//    Node temp = root;
+//    while (true) {
+//      if (val == temp.value) return true;
+//
+//      if (val < temp.value) {
+//        if (temp.left == null) return false;
+//        temp = temp.left;
+//      } else {
+//        if (temp.right == null) return false;
+//        temp = temp.right;
+//      }
+//    }
+    return rContains(root, val);
+  }
 
-    Node temp = root;
-    while (true) {
-      if (val == temp.value) return true;
+  private boolean rContains(Node currentNode, int val) {
+    if (currentNode == null) return false;
 
-      if (val < temp.value) {
-        if (temp.left == null) return false;
-        temp = temp.left;
-      } else {
-        if (temp.right == null) return false;
-        temp = temp.right;
-      }
+    if (currentNode.value == val) return true;
+
+    if (val < currentNode.value) {
+      return rContains(currentNode.left, val);
+    } else {
+      return rContains(currentNode.right, val);
     }
   }
 
+  public void rInsert(int val) {
+    if (root == null) root = new Node(val);
+    rInsert(root, val);
+  }
+
+  private Node rInsert(Node curNode, int val) {
+    if (curNode == null) return new Node(val);
+
+    if (val < curNode.value) {
+      curNode.left = rInsert(curNode.left, val);
+    } else if (val > curNode.value) {
+      curNode.right = rInsert(curNode.right, val);
+    }
+    return curNode;
+  }
+
+  private int minValue(Node curNode) {
+    while (curNode.left != null) {
+      curNode = curNode.left;
+    }
+    return curNode.value;
+  }
+
+  public void deleteNode(int value) { root = deleteNode(root, value); }
+
+  private Node deleteNode(Node curNode, int val) {
+    if (curNode == null) return null; // tree is empty or value doesn't exist
+
+    // traversing
+    if (val < curNode.value) {
+      curNode.left = deleteNode(curNode.left, val);
+    } else if (val > curNode.value) {
+      curNode.right = deleteNode(curNode.right, val);
+    } else { // value found
+      if (curNode.left == null && curNode.right == null) { // leaf
+        curNode = null;
+      } else if (curNode.left == null) { // only right
+        curNode = curNode.right;
+      } else if (curNode.right == null) { // only left
+        curNode = curNode.left;
+      } else { // both right and left
+        int min = minValue(curNode.right);
+        curNode.value = min;
+        curNode.right = deleteNode(curNode.right, min);
+      }
+    }
+    return curNode;
+  }
 }
